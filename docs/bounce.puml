@@ -1,0 +1,35 @@
+@startuml bounce
+
+class Juego{
+    - nivelesCompletados : int
+    - puntuacionTotal : int
+    + iniciarJuego()
+    + finalizarJuego()
+}
+
+
+class Jugador
+
+class Pelota{
+    - posicionX : int
+    - posicionY : int
+    + mover()
+    + rebotar()
+}
+
+class Nivel{
+    - numero : int
+    - puntuacion : int
+    + iniciarNivel()
+    + finalizarNivel()
+}
+
+Juego *-- Jugador
+Jugador o-- Pelota
+Juego *-- Nivel
+Nivel *-- Pelota
+Pelota o-- Nivel
+Nivel --> Juego
+
+
+@enduml
